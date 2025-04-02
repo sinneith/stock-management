@@ -17,11 +17,13 @@ const ButtonWithImg = ({
   location,
   imgAlt,
   imgWidth = 3,
+  btnAction,
 }: {
   imgUrl: string;
   location?: string;
   imgAlt: string;
   imgWidth?: number;
+  btnAction?: () => void;
 }) => {
   return (
     <>
@@ -30,7 +32,7 @@ const ButtonWithImg = ({
           <img src={imgUrl} alt={imgAlt} />
         </LinkButton>
       ) : (
-        <Button imgWidth={imgWidth}>
+        <Button imgWidth={imgWidth} onClick={btnAction}>
           <img src={imgUrl} alt={imgAlt} />
         </Button>
       )}

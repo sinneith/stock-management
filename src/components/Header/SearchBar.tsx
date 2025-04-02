@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { SearchFilter } from "../../types/searchInterface.d";
 import styled from "styled-components";
 import HomeBtn from "./HomeBtn";
 import SearchInput from "./SearchInput";
@@ -10,18 +12,28 @@ const SearchWrapper = styled.div`
   column-gap: 3rem;
   padding: 5rem 2rem;
   box-sizing: border-box;
-  & > input {
-    width: 100%;
-    max-width: 50rem;
-  }
 `;
 
+const filterList: SearchFilter[] = [
+  { id: 1, value: "name", label: "제품명" },
+  { id: 2, value: "code", label: "제품코드" },
+];
+
 const SearchBar = () => {
+  const [keyword, setKeyword] = useState<string>("");
+  const [filter, setFilter] = useState<"name" | "code">("name");
+
   return (
     <SearchWrapper>
       <HomeBtn />
-      <SearchInput />
-      <SearchBtn />
+      <SearchInput
+        keyword={keyword}
+        setKeyword={setKeyword}
+        filter={filter}
+        setFilter={setFilter}
+        filterList={filterList}
+      />
+      <SearchBtn keyword={keyword} filter={filter} />
     </SearchWrapper>
   );
 };
