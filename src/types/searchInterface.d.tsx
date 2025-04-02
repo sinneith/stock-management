@@ -13,3 +13,15 @@ export interface SearchInputProps {
   setFilter: React.Dispatch<React.SetStateAction<"name" | "code">>;
   filterList: SearchFilter[];
 }
+
+export interface TableItem {
+  id: number;
+  code: string;
+  name: string;
+  quantity: number;
+}
+
+export interface TableData {
+  tableHeader: string[];
+  tableContent: TableItem[];
+}

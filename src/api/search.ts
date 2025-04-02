@@ -9,5 +9,9 @@ export const searchKeyword = ({
   keyword: string;
   navigate: NavigateFunction;
 }) => {
-  navigate(`/search?filter=${filter}&keyword=${keyword}`);
+  if (keyword === "") {
+    alert("검색어를 입력해주세요");
+  } else {
+    navigate(`/search?filter=${filter}&keyword=${keyword}`);
+  }
 };

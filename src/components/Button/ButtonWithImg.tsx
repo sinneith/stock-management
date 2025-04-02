@@ -10,6 +10,10 @@ const LinkButton = styled(Link)<{ imgWidth: number }>`
 
 const Button = styled.div<{ imgWidth: number }>`
   width: ${(props) => props.imgWidth}rem;
+  cursor: pointer;
+  & > img {
+    width: 100%;
+  }
 `;
 
 const ButtonWithImg = ({
