@@ -21,23 +21,18 @@ const TableWrapper = ({
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    if (tableTitle === "재고부족 리스트") {
-      const fetchData = async () => {
-        const data = await getStockShortage(tableCategory);
-        if (data) {
-          setTableData(data);
-        }
-      };
-      fetchData();
-    } else {
-      const fetchData = async () => {
-        const data = await getData(tableCategory);
-        if (data) {
-          setTableData(data);
-        }
-      };
-      fetchData();
-    }
+    const fetchData = async () => {
+      const data =
+        tableTitle === "재고부족 리스트"
+          ? await getStockShortage(tableCategory)
+          : await getData(tableCategory);
+
+      if (data) {
+        setTableData(data);
+      }
+    };
+
+    fetchData();
   }, [tableCategory]);
 
   return (

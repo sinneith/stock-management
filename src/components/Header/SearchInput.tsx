@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { SearchInputProps } from "../../types/searchInterface.d";
 import styled from "styled-components";
+import { searchKeyword } from "../../api/search";
 
 const InputWrapper = styled.div`
   border-bottom: 0.1rem solid grey;
@@ -28,9 +30,18 @@ const SearchInput = ({
   setFilter,
   filterList,
 }: SearchInputProps) => {
+  const navigate = useNavigate();
+
   const handleChangeKeyword = (inputWord: string) => setKeyword(inputWord);
+
   const handleChangeFilter = (selectedFilter: string) =>
     setFilter(selectedFilter as "name" | "code");
+
+  const handleSubmitData = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      searchKeyword({ filter, keyword, navigate });
+    }
+  };
 
   return (
     <InputWrapper>
@@ -47,6 +58,7 @@ const SearchInput = ({
       <Input
         value={keyword}
         onChange={(e) => handleChangeKeyword(e.target.value)}
+        onKeyDown={handleSubmitData}
       />
     </InputWrapper>
   );

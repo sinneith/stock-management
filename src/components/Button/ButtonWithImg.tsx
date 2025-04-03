@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const LinkButton = styled(Link)<{ imgWidth: number }>`
-  width: ${(props) => props.imgWidth}rem;
+const LinkButton = styled(Link)<{ $imgWidth: number }>`
+  width: ${(props) => props.$imgWidth}rem;
   & > img {
     width: 100%;
   }
 `;
 
-const Button = styled.div<{ imgWidth: number }>`
-  width: ${(props) => props.imgWidth}rem;
+const Button = styled.div<{ $imgWidth: number }>`
+  width: ${(props) => props.$imgWidth}rem;
   cursor: pointer;
   & > img {
     width: 100%;
@@ -32,11 +32,11 @@ const ButtonWithImg = ({
   return (
     <>
       {location ? (
-        <LinkButton to={location} imgWidth={imgWidth}>
+        <LinkButton to={location} $imgWidth={imgWidth}>
           <img src={imgUrl} alt={imgAlt} />
         </LinkButton>
       ) : (
-        <Button imgWidth={imgWidth} onClick={btnAction}>
+        <Button $imgWidth={imgWidth} onClick={btnAction}>
           <img src={imgUrl} alt={imgAlt} />
         </Button>
       )}

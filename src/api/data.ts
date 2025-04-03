@@ -25,3 +25,27 @@ export const getStockShortage = async (category: string) => {
     return [];
   }
 };
+
+export const getSearchResults = async ({
+  category,
+  filter,
+  keyword,
+}: {
+  category: string;
+  filter: "name" | "code";
+  keyword: string;
+}) => {
+  try {
+    const res = await axios.get(
+      `${BASE_URL}/${category}?${
+        filter === "name" ? "name" : "code"
+      }=${keyword}`
+    );
+
+    console.log(res.data);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};

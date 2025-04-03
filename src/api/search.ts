@@ -15,3 +15,7 @@ export const searchKeyword = ({
     navigate(`/search?filter=${filter}&keyword=${keyword}`);
   }
 };
+
+export const TableHeader = {
+  default: ["제품코드", "제품명", "수량"],
+};
