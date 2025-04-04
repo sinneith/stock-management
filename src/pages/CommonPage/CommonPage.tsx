@@ -1,6 +1,6 @@
+import { ReactNode } from "react";
 import styled from "styled-components";
 import SearchBar from "../../components/Header/SearchBar";
-import { ReactNode } from "react";
 
 const PageWrapper = styled.div`
   width: 100%;

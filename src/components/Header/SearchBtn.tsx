@@ -12,7 +12,7 @@ const SearchBtn = ({
   const navigate = useNavigate();
   return (
     <ButtonWithImg
-      imgUrl="./src/assets/images/search.png"
+      imgUrl="/src/assets/images/search.png"
       imgAlt="검색"
       btnAction={() => searchKeyword({ filter, keyword, navigate })}
     />
