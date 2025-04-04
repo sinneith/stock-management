@@ -39,7 +39,7 @@ export const getSearchResults = async ({
     const res = await axios.get(
       `${BASE_URL}/${category}?${
         filter === "name" ? "name" : "code"
-      }=${keyword}`
+      }_like=${keyword}`
     );
 
     console.log(res.data);
